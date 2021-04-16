@@ -10,7 +10,7 @@
 
 使用者透過瀏覽器送出 request。發 request 的時候，會先問 DNS Server，詢問網頁的 IP 位置，DNS Server 就會回傳一個 IP 位置，瀏覽器就會把 request 送過去 DNS Server 給的 IP。
 
-接著，Server 收到資料，去 Data Base 搜尋完後，Server 再把找到搜尋結果回傳 HTML 文件給給瀏覽器，最後瀏覽器解析出搜尋結果給使用者。
+接著，Server 收到資料，去 Database 搜尋完後，Server 再把找到搜尋結果回傳給瀏覽器，最後瀏覽器解析出搜尋結果給使用者。
 
 ***
 
@@ -20,4 +20,4 @@
 
 2.`cal 數字 西元年份`：顯示日曆。
 
-3.`history`：列出最近使用過的幾條指令與編號。
+3.`history`：列出最近使用過的指令與編號。
