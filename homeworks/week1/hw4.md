@@ -146,7 +146,7 @@ Commit A < Commit B < Commit C < Commit C（merge）
 
 
 
-Commit A < Commit B < Commit C < Commit C（merge）
+Commit A < Commit B < Commit C < Commit D（merge）
 
 ​                                                                         |
 
