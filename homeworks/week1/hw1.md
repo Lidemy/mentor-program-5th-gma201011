@@ -26,8 +26,10 @@
 
 等到作業批改完，沒有任何問題時請執行以下步驟：
 
-1.本地的 master 還沒有最新版本，從 GitHub pull 下來最新 merge 過後的 master 分支（記得先切到 master）。
+1.本地的 master 還沒有最新版本，從 GitHub pull 下來最新 merge 過後的 master 分支，用 `git pull origin master `  指令。
 
-2.接著可以把當週已經 merge 的 branch 刪掉。
+在這之前，記得先用 `checkout master` 切到 master 分支。
+
+2.接著可以把當週已經 merge 的 branch 刪掉，用 `git branch -d [分支名稱]`。
 
 3.完成整個交作業流程，進行下一週課題。
