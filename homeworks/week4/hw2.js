@@ -35,16 +35,19 @@ function listBook() {
       let data
       try {
         data = JSON.parse(body)
-      } catch (e) {
-        console.log(e)
+      } catch (error) {
+        console.log(error)
+        return
       }
-      for (let i = 0; i < data.length; i++) {
-        console.log(`${data[i].id} ${data[i].name}`)
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        for (let i = 0; i < data.length; i++) {
+          console.log(`${data[i].id} ${data[i].name}`)
+        }
       }
     })
 }
 
-function readBook(parameter1) {
+function readBook(id) {
   request.get(
     `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
     (error, response, body) => {
@@ -57,43 +60,66 @@ function readBook(parameter1) {
       } catch (e) {
         console.log(e)
       }
-      console.log(`${data.id} ${data.name}`)
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        console.log(`${data.id} ${data.name}`)
+      } else {
+        console.log('抓取失敗，請輸入有效的書本id')
+      }
     })
 }
 
-function deleteBook(parameter1) {
+function deleteBook(id) {
   request.delete(
     `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
     (error, response, body) => {
       if (error) {
         return console.log('刪除失敗', error)
       }
-      console.log('Delete book id:', parameter1)
+      if (response.statusCode >= 200 && response.statusCode < 300) {
+        console.log('Delete book id:', parameter1)
+      } else {
+        console.log('刪除失敗，請重新輸入有效的書本id')
+      }
     })
 }
 
-function createBook(parameter1) {
+function createBook(name) {
   request.post({
     url: 'https://lidemy-book-store.herokuapp.com/books/',
     form: { name: parameter1 }
   },
-  (error, httpResponse) => {
+  (error, response) => {
     if (error) {
       return console.log('新增失敗', error)
     }
-    console.log('Create book:', parameter1)
+    let data
+    try {
+      data = JSON.parse(response.body)
+    } catch (error) {
+      console.log(error)
+    }
+    if (response.statusCode >= 200 && response.statusCode < 300) {
+      if (parameter1 === '' || parameter1 === undefined) {
+        console.log('新增失敗，請嘗試輸入有效的書名')
+      } else {
+        console.log('Create book:', data)
+      }
+    }
   })
 }
 
-function updateBook(parameter1, parameter2) {
+function updateBook(id, newName) {
   request.patch({
     url: `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
     form: { name: parameter2 }
   },
-  (error, httpResponse) => {
+  (error, response) => {
     if (error) {
       return console.log('更新失敗', error)
+    } else if (response.statusCode >= 200 && response.statusCode < 300) {
+      console.log('Update ID:', parameter1, 'Changed name:', parameter2)
+    } else {
+      console.log('更新失敗，請輸入有效的書本id及名稱')
     }
   })
-  console.log('Update ID:', parameter1, 'Changed name:', parameter2)
 }

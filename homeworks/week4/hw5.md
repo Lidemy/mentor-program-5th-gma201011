@@ -2,7 +2,7 @@
 
 API，應用程式介面，就像一個橋樑一樣，連接「想獲取資訊」及「提供資訊」兩端，作為兩者溝通的端點。
 
-拿我們這週的「串 Web Api」舉例：引入一個 request Library，client 端寫明需要獲取的資訊，發送一個 request 給 server 端，藉由 api 的串連，server 再回傳一個 response 給 client 端。
+拿我們這週的「串 Web Api」舉例：client 端寫明需要獲取的資訊，發送一個 request 給 server 端，藉由 api 的串連，server 再回傳一個 response 給 client 端。
 
 串 api 就是一個交換資訊的過程。
 
@@ -39,74 +39,4 @@ Base URL: https://lidemy-restaurant.herokuapp.com/
 | 新增餐廳         | POST   | /restaurant     | name: 餐廳名            | 無                   |
 | 刪除餐廳         | DELETE | /restaurant/:id | 無                      | 無                   |
 | 更改餐廳         | PATCH  | /restaurant/:id | name: 餐廳名            | 無                   |
-
-```JS
-//使用語言：JavaScript(需安裝 Node.js 的 request 模組 )
-
-//回傳所有餐廳資料範例(限制 10 筆資料)
-const request = require('request')
-
-request.get (
-  'https://lidemy-restaurant.herokuapp.com/restaurant?_limit=10',
-  function (error, response, body) {
-    if (error) {
-      return console.log('讀取失敗', error);
-    }
-    console.log(body)
-	})  
- 
-//回傳單一餐廳資料範例(回傳 id 為 10 的餐廳)
-const request = require('request')
-
-request.get (
-  'https://lidemy-restaurant.herokuapp.com/10',
-  function (error, response, body) {
-    if (error) {
-      return console.log('抓取失敗', error)
-    }  
-    console.log(body)
-  })
-
-
-//新增餐廳(新增名為'123'的餐廳)
-const request = require('request')
-
-request.post({
-  url:'https://lidemy-restaurant.herokuapp.com/restaurant/', 
-  form: {name: '123'}}, 
-  function(error, httpResponse){ 
-    if (error) {
-      return console.log('新增失敗', error);
-    }  
-    console.log('Create restaurant:', '123')
-  })
-
-//刪除餐廳(將 id 為 20 的餐廳刪除)
-const request = require('request')
-
-request.delete (
-  'https://lidemy-restaurant.herokuapp.com/restaurent/20',
-  function (error, response, body) {
-    if (error) {
-      return console.log('刪除失敗', error);
-    }  
-    console.log('Delete restaurant id:', 20)
-  })
-
-//更改餐廳(將 id 為 20 的餐廳名稱更改為 '456')
-const request = require('request')
-
-request.patch({
-  url:'https://lidemy-restaurant.herokuapp.com/restaurent/20',
-  form: {name: 456}}, 
-  function(error, httpResponse){ 
-    if (error) {
-      return console.log('更新失敗', error);
-    }  
-})
-    console.log('Update ID:', 20, 'Changed name:', 456)
-
-```
-
-
 
