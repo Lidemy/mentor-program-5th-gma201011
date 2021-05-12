@@ -49,7 +49,7 @@ function listBook() {
 
 function readBook(id) {
   request.get(
-    `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
+    `https://lidemy-book-store.herokuapp.com/books/${id}`,
     (error, response, body) => {
       if (error) {
         return console.log('抓取失敗', error)
@@ -70,7 +70,7 @@ function readBook(id) {
 
 function deleteBook(id) {
   request.delete(
-    `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
+    `https://lidemy-book-store.herokuapp.com/books/${id}`,
     (error, response, body) => {
       if (error) {
         return console.log('刪除失敗', error)
@@ -83,10 +83,10 @@ function deleteBook(id) {
     })
 }
 
-function createBook(name) {
+function createBook(bookName) {
   request.post({
     url: 'https://lidemy-book-store.herokuapp.com/books/',
-    form: { name: parameter1 }
+    form: { name: bookName }
   },
   (error, response) => {
     if (error) {
@@ -110,8 +110,8 @@ function createBook(name) {
 
 function updateBook(id, newName) {
   request.patch({
-    url: `https://lidemy-book-store.herokuapp.com/books/${parameter1}`,
-    form: { name: parameter2 }
+    url: `https://lidemy-book-store.herokuapp.com/books/${id}`,
+    form: { name: newName }
   },
   (error, response) => {
     if (error) {
