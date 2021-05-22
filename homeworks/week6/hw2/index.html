@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>表單</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+
+  <style>
+      body {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+        .wrapper {
+            max-width: 645px;
+            background: white;
+            margin: 10% auto;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+            border-top: solid 8px #fad312;
+            padding: 64px 32px;
+        }
+
+        .form__title {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .form__info {
+            margin-top:35px;
+            font-size: 14px;
+            line-height:1.5em;
+        }
+
+        .form__required-warn {
+            color: #e74149;
+            font-size: 16px;
+            margin-top: 22px;
+        }
+
+        .input {
+            margin-top: 55px;
+        }
+
+        .input__title {
+            font-size: 20px;
+        }
+
+        .input__desc {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .input__answer {
+            margin-top: 20px;
+        }
+
+        .input__answer input {
+            border: solid 1px #d0d0d0;
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .required:after {
+            content: "*";
+            color: #e74149;
+        }
+
+        .form__submit {
+            background: #fad312;
+            color: black;
+            font-size: 15px;
+            padding: 12px 32px;
+            margin-top: 55px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .form__warning {
+            margin-top: 21px;
+        }
+
+        footer {
+            background: black;
+            color: #999999;
+            font-size: 13px;
+            text-align: center;
+            padding: 24px 12px;
+        }                             
+
+        @media(max-width: 768px) {
+            .form__title {
+                font-size: 2em;
+            }
+        }            
+        @media(max-width: 400px) {
+            .form__title {
+                font-size: 1.75em;
+            }
+        }
+        @media(max-width: 280px) {
+            .form__title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <form class="form">
+            <h1 class="form__title">新拖延運動報名表單</h1>
+            <p class="form__info">
+                    活動日期：2020/12/10 ~ 2020/12/11<br>
+                    活動地點：台北市大安區新生南路二段1號
+            </p>
+            <p class="form__required-warn">
+                    *必填
+            </p>
+            <section class="input">
+                <div class="input__title required">
+                    暱稱
+                </div>
+                <div class="input__desc">
+                    對活動的一些建議
+                </div>
+                <div class="input__answer">
+                    <input type="text" name="nickname" placeholder="您的暱稱"/>
+                </div>
+            </section>
+            <section class="input">
+                <div class="input__title required">
+                    電子郵件
+                </div>
+                <div class="input__answer">
+                    <input type="email" name="email" placeholder="您的電子郵件"/>
+                </div>
+            </section>
+            <section class="input">
+                <div class="input__title required">
+                    手機號碼
+                </div>
+                <div class="input__answer">
+                    <input type="phone" name="phone" placeholder="您的手機號碼"/>
+                </div>
+            </section>
+            <section class="input">
+                <div class="input__title required">
+                    報名類型
+                </div>
+                <div class="input__answer">
+                    <div><input type="radio" name="type" id="bed"/><label for="bed">躺在床上用想像力實作</label></div></br>
+                    <div><input type="radio" name="type" id="floor"/><label for="floor">趴在地上滑手機找現成的</label></div>
+                </div>
+            </section>
+            <section class="input">
+                <div class="input__title required">
+                    怎麼知道這個活動的？
+                </div>
+                <div class="input__answer">
+                    <input type="text" name="referal" placeholder="您的回答"/>
+                </div>
+            </section>
+            <section class="input">
+                <div class="input__title">
+                    其他
+                </div>
+                <div class="input__desc">
+                    對活動的一些建議
+                </div>
+                <div class="input__answer">
+                    <input type="text" name="other" placeholder="您的回答"/>
+                </div>
+            </section>
+            <input class="form__submit" type="submit" value="提交"/>
+            <p class="form__warning">
+                請勿透過表單送出您的密碼。
+            </p>
+
+        </form>
+    </div>
+    <footer>© 2020 © Copyright. All rights Reserved.</footer>
+
+</body>
+</html>
