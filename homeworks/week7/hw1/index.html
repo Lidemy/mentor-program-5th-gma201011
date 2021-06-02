@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>表單</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+
+  <style>
+      body {
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+        .wrapper {
+            max-width: 645px;
+            background: white;
+            margin: 10% auto;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+            border-top: solid 8px #fad312;
+            padding: 64px 32px;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top:35px;
+            font-size: 14px;
+            line-height:1.5em;
+        }
+
+        .required-warn {
+            color: #e74149;
+            font-size: 16px;
+            margin-top: 22px;
+        }
+
+        .input {
+            margin-top: 55px;
+        }
+
+        .input__title {
+            font-size: 20px;
+        }
+
+        .input__desc {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .input__answer {
+            margin-top: 20px;
+        }
+
+        .input__answer input {
+            border: solid 1px #d0d0d0;
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .required:after {
+            content: "*";
+            color: #e74149;
+        }
+
+        .form__submit {
+            background: #fad312;
+            color: black;
+            font-size: 15px;
+            padding: 12px 32px;
+            margin-top: 55px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .form__warning {
+            margin-top: 21px;
+        }
+
+        footer {
+            background: black;
+            color: #999999;
+            font-size: 13px;
+            text-align: center;
+            padding: 24px 12px;
+        }                       
+
+        @media(max-width: 768px) {
+            .title {
+                font-size: 2em;
+            }
+        }            
+        @media(max-width: 400px) {
+            .title {
+                font-size: 1.75em;
+            }
+        }
+        @media(max-width: 280px) {
+            .title {
+                font-size: 1.5em;
+            }
+        }
+        .input__answer > div {
+            color: red;
+            font-size: 12px;
+        }
+
+        .input__error {
+            margin-top: 10px;
+            color: #e74149;
+            position: absolute;
+        }
+
+        .hide-error .input__error {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="title">新拖延運動報名表單</h1>
+        <p class="info">
+                活動日期：2020/12/10 ~ 2020/12/11<br>
+                活動地點：台北市大安區新生南路二段1號
+        </p>
+         <p class="required-warn">
+            *必填
+        </p>
+        <form class="form">
+            <section class="input hide-error">
+                <div class="input__title required">
+                    暱稱
+                </div>
+            
+                <div class="input__answer">
+                    <input type="text" name="nickname" placeholder="您的暱稱" />
+                </div>
+                <div class="input__error">請填答</div>
+            </section>
+            <section class="input hide-error">
+                <div class="input__title required">
+                    電子郵件
+                </div>
+                <div class="input__answer">
+                    <input type="email" name="email" placeholder="您的電子郵件"/>
+                </div>
+                <div class="input__error">請填答</div>
+            </section>
+            <section class="input hide-error">
+                <div class="input__title required">
+                    手機號碼
+                </div>
+                <div class="input__answer">
+                    <input type="phone" name="phone" placeholder="您的手機號碼"/>
+                </div>
+                <div class="input__error">請填答</div>
+            </section>
+            <section class="input hide-error">
+                <div class="input__title required">
+                    報名類型
+                </div>
+                <div class="input__answer">
+                    <input type="radio" name="apply-choice" id="bed" /><label for="bed">躺在床上用想像力實作</label><br/><br/>
+                    
+                    <input type="radio" name="apply-choice" id="floor" /><label for="floor">趴在地上滑手機找現成的</label>
+                </div>
+                <div class="input__error">請填答</div>
+            </section>
+            <section class="input hide-error">
+                <div class="input__title required">
+                    怎麼知道這個活動的？
+                </div>
+                <div class="input__answer">
+                    <input type="text" name="referal" placeholder="您的回答"/>
+                </div>
+                <div class="input__error">請填答</div>
+            </section>
+            <section class="input">
+                <div class="input__title">
+                    其他
+                </div>
+                <div class="input__desc">
+                    對活動的一些建議
+                </div>
+                <div class="input__answer">
+                    <input type="text" name="other" placeholder="您的回答"/>
+                </div>
+            </section>
+            <input class="form__submit" type="submit" value="提交"/>
+            <p class="form__warning">
+                請勿透過表單送出您的密碼。
+            </p>
+
+        </form>
+    </div>
+    <footer>© 2020 © Copyright. All rights Reserved.</footer>
+
+    <script>
+
+        const input_nickname = document.querySelector('input[name = nickname]')
+        const input_email = document.querySelector('input[name = email]')
+        const input_phone = document.querySelector('input[name = phone]')
+        const input_referal = document.querySelector('input[name = referal]')
+        const input_apply_choice = document.getElementsByName('apply-choice')
+        const input_other = document.querySelector('input[name = other]')
+        
+        document.querySelector('.form').addEventListener('submit', function(e) {
+            e.preventDefault()
+            let hasError = false
+
+            if (!input_nickname.value) {
+                input_nickname.parentNode.parentNode.classList.remove('hide-error')
+                hasError = true
+            } else {
+                input_nickname.parentNode.parentNode.classList.add('hide-error')
+            }
+
+            if (!input_email.value) {
+                input_email.parentNode.parentNode.classList.remove('hide-error')
+                hasError = true
+            } else {
+                input_email.parentNode.parentNode.classList.add('hide-error')
+            }
+
+            if (!input_phone.value) {
+                input_phone.parentNode.parentNode.classList.remove('hide-error')
+                hasError = true
+            } else {
+                input_phone.parentNode.parentNode.classList.add('hide-error')
+            }
+
+            if (!input_referal.value) {
+                input_referal.parentNode.parentNode.classList.remove('hide-error')
+                hasError = true
+            } else {
+                input_referal.parentNode.parentNode.classList.add('hide-error')
+            }
+          
+            let radioValue = ''
+            let hasValue = [...input_apply_choice].some(radio => radio.checked)
+            if (!hasValue) {
+                document.querySelector('input[name = apply-choice]').parentNode.parentNode.classList.remove('hide-error')
+                hasError = true
+            } else {
+                document.querySelector('input[name = apply-choice]').parentNode.parentNode.classList.add('hide-error')
+
+                for (let i = 0; i < input_apply_choice.length; i++) {        
+                        if (input_apply_choice[i].checked) {                 
+                            if (input_apply_choice[i].id === 'bed') {
+                            radioValue = '躺在床上用想像力實作'
+                        } else {
+                            radioValue = '趴在地上滑手機找現成的'
+                        }
+                    }
+                }
+            }
+
+            if (!hasError) {
+                alert (`
+                成功填答表單！以下是您的填寫內容：
+                暱稱:${input_nickname.value}
+                電子郵件：${input_email.value}
+                手機號碼：${input_phone.value}
+                報名類型：${radioValue}
+                怎麼知道這個活動的：${input_referal.value}
+                對活動的一些建議：${input_other.value}
+                `)
+            }
+        })
+    </script>
+</body>
+</html>
