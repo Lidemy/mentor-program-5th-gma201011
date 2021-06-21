@@ -1,0 +1,176 @@
+body {
+    background: #f7f7f7;
+}
+
+html, body, h1, h2, h3, h4, p {
+    padding:0;
+    margin:0;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+.warning {
+    background: #ffc4c6;
+    color: #a20606;
+    padding: 10px;
+    text-align: center;
+}
+
+.error {
+    color: #a20606;
+    margin-left:20px;
+    margin-bottom: 20px;
+}
+
+.board {
+    background:white;
+    width:100%;
+    max-width:700px;
+    margin:20px auto;
+    padding:10px 20px;
+    box-shadow: 1px 1px 3px #e8e8e8;
+    border-radius: 5px;
+}
+
+.board__title {
+    font-size: 16px;
+    padding: 20px;
+}
+
+.board__new-form {
+    margin: 0 20px;
+}
+
+.board__nickname {
+    margin-bottom: 10px;
+}
+
+.nickname__title {
+    font-size:14px;
+}
+
+.nickname__input {
+    border: 1px solid #c2dffb;
+    padding:3px;
+}
+
+
+.board_textarea {
+    width:95%;
+    padding: 10px;
+    border: 1px solid #c2dffb;
+    box-shadow: border-box;
+}
+
+.board__submit-btn {
+    padding:5px;
+    border: 1px solid #c2dffb;
+    border-radius: 5px;
+    width:80px;
+    background:white;
+    margin:10px 0;
+}
+
+.board__hr {
+    margin: 10px 20px;
+
+    color: #e8e8e8;
+    max-width:90%;
+}
+
+.card {
+    margin:15px 0;
+    min-height:70px;
+    padding: 15px;
+    display: flex;
+}
+
+.card__avatar {
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    background:#e4f0fb;
+    margin:0 10px;
+}
+
+.card__content {
+    margin-top: 8px;
+    max-width: 95%;
+    word-break: break-all;
+    white-space:pre-line;
+}
+
+.card__author {
+    color:#5c9edc;
+    font-weight:bold;
+    margin-bottom: 2px;
+    max-width: 65%;
+    word-break: break-all;
+}
+
+.card__time {
+    color:#a0a0a0;
+    max-width: 65%;
+}
+
+.board__btn {
+    padding:10px 30px;
+    border: 1px solid #c2dffb;
+    border-radius: 5px;
+    background:white;
+    margin:5px 0 0 20px;
+    color:black;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.board__register {
+    margin: 0 20px;
+}
+
+.register__column {
+    font-size:14px;
+    margin-bottom: 20px;
+}
+
+.register__title {
+    font-size:14px;
+}
+
+.register__input {
+    border: 1px solid #c2dffb;
+    padding:3px;
+}
+
+.board__login {
+    margin-left:20px;
+}
+
+.login__column {
+    font-size:14px;
+    margin-bottom: 20px;
+}
+
+.login__title {
+    font-size:14px;
+}
+
+.login__input {
+    border: 1px solid #c2dffb;
+    padding:3px;
+}
+
+.login__alert {
+    margin-left:20px;
+}
+
+.board__greeting {
+    margin-left:20px;
+    margin-top:10px;
+    max-width:80%;
+}
