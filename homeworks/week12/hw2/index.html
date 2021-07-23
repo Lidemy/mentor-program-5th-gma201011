@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Todo list</title>
+  <meta name​="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+
+
+  <style>
+    .todo-content {
+      max-width:80%;
+    }
+
+  </style>
+  <script>
+    $(document).ready(function () {
+
+      $('.btn_add-todo').click(function (e) {
+        const value = $('.todo-input').val().replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        if (value === '') {
+          alert('請填入代辦事項')
+          return
+        }
+        $('.todo-input').val('')
+        $('.todos').append(`
+        <div class = "todo-container">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div class = "todo-content">${value}</div>
+                  <div class = "todo-btn">
+                    <button class="btn-edit btn btn-info">編輯</button>
+                    <button class="btn-delete btn btn-danger">刪除</button>
+                    <button class="btn-mark-todo btn btn-secondary">未完成</button>
+                  </div>
+                </li>
+                </div>
+             `)
+      })
+
+      
+
+      $('.todos').on('click', '.btn-delete', function (e) {
+        $(e.target).parent().parent().remove()
+      })
+
+      $('.todos').on('click', '.btn-edit', function (e) {
+        const text = $(e.target).parent().prev().text()
+        $('.todo-input').val(text)
+        $(e.target).parent().parent().remove()
+      })
+
+      $('.todos').on('click', '.btn-mark-todo', function (e) {
+        const text = $(e.target).parent().prev().text()
+        $(e.target).parent().append(`<button class="btn-mark-completed btn btn-success">已完成</button>`)
+        $(e.target).remove()
+      })
+
+      $('.todos').on('click', '.btn-mark-completed', function (e) {
+        $(e.target).parent().append(`<button class="btn-mark-todo btn btn-secondary">未完成</button>`)
+        $(e.target).remove()
+      })
+
+      $('.btn_remove-completed').click(() => {
+        $('.btn-mark-completed').parent().parent().parent().empty()
+      })
+
+      $('.btn-select-all').click(() => {
+        $('.todo-container').show()
+      })
+
+      $('.btn-select-todo').click(() => {
+        $('.btn-mark-completed').parent().parent().parent().hide()
+        $('.btn-mark-todo').parent().parent().parent().show() 
+      })
+
+      $('.btn-select-completed').click(() => {
+        $('.btn-mark-todo').parent().parent().parent().hide()
+        $('.btn-mark-completed').parent().parent().parent().show()
+      })
+
+
+    })
+
+  </script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light text-justify">
+    <div class="title font-weight-bold">Todo List</div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row m-4">
+      <div class="btn-selector btn-group btn-group-toggle row" data-toggle="buttons">
+        <label class="btn-select-all btn btn-secondary m-1">
+          全部事項
+        </label>
+        <label class="btn-select-todo btn btn-secondary m-1">
+          待完成事項
+        </label>
+        <label class="btn-select-completed btn btn-secondary m-1">
+          已完成事項
+        </label>
+      </div>
+    </div>
+    <div class="input-block row">
+      <div class="col-12 col-md-8">
+        <div class="form-group">
+          <input type="text" placeholder="請輸入待辦事項" class="todo-input form-control" id="exampleInputPassword1">
+        </div>
+      </div>
+      <div class="col-12 col-md-2">
+        <button class="btn_add-todo btn btn-primary btn-block">新增</button>
+      </div>
+      <div class="col-12 col-md-2">
+        <button class="btn_remove-completed btn btn-danger btn-block">清空已完成項目</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            代辦事項清單
+          </div>
+          <ul class="todos list-group list-group-flush">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
