@@ -1,0 +1,140 @@
+.navbar__block {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px;
+}
+
+.navbar__title {
+    margin: 0 30px;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbar__games {
+    display: flex;
+    flex: 0.8;
+    justify-content: space-between;
+
+}
+
+.navbar__games div:hover {
+    font-weight: bolder;
+}
+
+.navbar__games>div {
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+.content__block {
+    background: #7c8a9c center/cover;
+}
+
+.content__desc {
+    margin-bottom: 40px;
+}
+
+.content__desc__title {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 50px 0;
+
+}
+
+.content__desc__info {
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+
+
+.stream__container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.stream__wrapper {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    padding-bottom: 10px;
+
+}
+
+.stream__wrapper:hover {
+    transform: scale(1.07);
+    filter: brightness(1.2);
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.stream__video>img {
+    width: 300px;
+    height: 170px;
+
+}
+
+.stream__info {
+    display: flex;
+    align-items: center;
+    background: gray;
+    position: relative;
+    top: -5px;
+
+}
+
+.info__avatar {
+    margin: 0 8px;
+    padding-top: 3px;
+
+}
+
+.info__avatar>img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+.info__desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .stream__wrapper:last-child {
+        height: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .content__block {
+        width: 160%;
+    }
+
+    .navbar__games {
+        padding-left: 1.8em;
+        margin-top: 3vh;
+    }
+
+    .navbar__games>div {
+        margin: 0 0.7em;
+    }
+}
+
+@media (max-width: 320px) {
+    .content__block {
+        width: 205%;
+    }
+}
