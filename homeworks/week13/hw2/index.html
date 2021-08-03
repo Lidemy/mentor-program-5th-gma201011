@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>w12 留言板</title>
+  <meta name​="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="
+    sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src = "./dist/main.js"></script>
+  <script>
+    $(document).ready(() => {
+        commentPlugin.init({
+            siteKey:'toni',
+            apiUrl:'http://mentor-program.co/mtr04group6/gma201011/w12_discussions',
+            containerSelector:'.comments-area'
+        })
+    })
+    $(document).ready(() => {
+        commentPlugin.init({
+            siteKey:'toni2',
+            apiUrl:'http://mentor-program.co/mtr04group6/gma201011/w12_discussions',
+            containerSelector:'.comments-area'
+        })
+    })
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class = "comments-area"></div>
+  </div>
+  
+  </div>
+</body>
+
+</html>
